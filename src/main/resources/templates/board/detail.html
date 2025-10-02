@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 상세</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .detail { max-width: 500px; border: 1px solid #ddd; padding: 20px; }
+        .detail p { margin: 10px 0; }
+        .btn { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn:hover { background-color: #45a049; }
+        .btn-delete { background-color: #f44336; }
+        .btn-delete:hover { background-color: #da190b; }
+    </style>
+</head>
+<body>
+    <h1>게시글 상세</h1>
+
+    <div class="detail">
+        <p><strong>번호:</strong> <span th:text="${board.id}"></span></p>
+        <p><strong>이름:</strong> <span th:text="${board.name}"></span></p>
+        <p><strong>전화번호:</strong> <span th:text="${board.phone}"></span></p>
+    </div>
+
+    <br>
+    <a href="/board" class="btn">목록으로</a>
+
+    <form th:action="@{/board/{id}/delete(id=${board.id})}" method="post" style="display: inline;">
+        <button type="submit" class="btn btn-delete" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</button>
+    </form>
+</body>
+</html>

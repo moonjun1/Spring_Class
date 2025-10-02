@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 작성</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 500px; }
+        input[type=text] { width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; }
+        .btn { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        .btn:hover { background-color: #45a049; }
+        .btn-cancel { background-color: #f44336; }
+        .btn-cancel:hover { background-color: #da190b; }
+    </style>
+</head>
+<body>
+    <h1>새 게시글 작성</h1>
+
+    <form th:action="@{/board}" method="post">
+        <label>이름:</label>
+        <input type="text" name="name" required>
+
+        <label>전화번호:</label>
+        <input type="text" name="phone" required>
+
+        <br><br>
+        <button type="submit" class="btn">저장</button>
+        <a href="/board"><button type="button" class="btn btn-cancel">취소</button></a>
+    </form>
+</body>
+</html>
